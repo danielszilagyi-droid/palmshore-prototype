@@ -8,12 +8,14 @@ import Reports from './pages/Reports';
 import EditPinnedSheet from './sheets/EditPinnedSheet';
 import ReportsWarningSheet from './sheets/ReportsWarningSheet';
 import Profile from './sheets/Profile';
+import NotificationsSheet from './sheets/NotificationsSheet';
 
 const SHEET = {
   NONE:           null,
   PROFILE:        'profile',
   EDIT_PINNED:    'editPinned',
   REPORTS_WARN:   'reportsWarning',
+  NOTIFICATIONS:  'notifications',
 };
 
 function ScheduleRoute({ openSheet }) {
@@ -22,6 +24,7 @@ function ScheduleRoute({ openSheet }) {
     <Schedule
       onApps={() => navigate('/menu')}
       onProfile={() => openSheet(SHEET.PROFILE)}
+      onNotifications={() => openSheet(SHEET.NOTIFICATIONS)}
     />
   );
 }
@@ -108,6 +111,9 @@ export default function App() {
           onNotificationPreferences={() => console.log('Notification Preferences — TODO')}
           onSupport={() => console.log('Support — TODO')}
           onLogout={handleLogout}
+      {activeSheet === SHEET.NOTIFICATIONS && (
+        <NotificationsSheet onClose={closeSheet} />
+      )}
         />
       )}
     </>
