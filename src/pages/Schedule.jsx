@@ -74,7 +74,13 @@ function TopBar({ onApps, onNotifications, onProfile }) {
         <IconButton label="Notifications" onClick={onNotifications}>
           <Bell size={22} className="text-slate-800" />
         </IconButton>
-        <button onClick={onProfile} aria-label="Profile" className="rounded-full">
+        <button
+          type="button"
+          onClick={onProfile}
+          aria-label="Profile"
+          className="rounded-full p-0 border-0 bg-transparent cursor-pointer"
+          style={{ display: 'flex', alignItems: 'center' }}
+        >
           <Avatar />
         </button>
       </div>
